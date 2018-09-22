@@ -17,19 +17,21 @@
                     <th></th>
                   </tr>
                 </thead>
+                <% users.each do |user| %>
                 <tbody>
                   <tr>
                     <td width="70">
-                      <img src="img/person1.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
+                      <img src="#" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
                     </td>
-                    <td>John Doe</td>
-                    <td>jdoe@gmail.com</td>
-                    <td>Jan, 1 2018</td>
+                    <td><%= user.first_name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.created_at %></td>
                     <td>
-                      <a href="details.html" class="btn blue lighten-2">Details</a>
+                      <a href="/posts" class="btn blue lighten-2">Details</a>
                     </td>
                   </tr>
                 </tbody>
+                <% end %>
               </table>
             </div>
             <div class="card-action">

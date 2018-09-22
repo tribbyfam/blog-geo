@@ -42,20 +42,23 @@ post '/login' do
 end
 
 get '/posts' do
- 
-  erb :posts
+  erb :posts, locals: { posts: Post.all }
 end
 
 get '/users' do
-  'users'
-  erb :users
+  erb :users, locals: { users: User.all }
 end
 
 get '/comments' do
-  'comments'
-  erb :comments
+  erb :comments, locals: { comments: Comment.all }
 end
 
 get '/dashboard' do
   erb :dashboard, { locals: {}, layout: :dash_layout}
+end
+
+get '/logout' do
+  session[:user_id] = nil
+
+  redirect '/'
 end
