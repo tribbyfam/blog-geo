@@ -6,11 +6,11 @@
           <div class="card-content">
             <div class="row">
               <div class="col s12 m6">
-                <span class="card-title">My Page</span>
+                <span class="card-title">All posts</span>
               </div>
               <div class="col s12 m6 center">
                 <img src="img/person1.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
-                <p><%= @current_user.first_name %></p>
+                <p><%= @current_user.first_name %> signed in</p>
             
               </div>
             </div>
@@ -23,9 +23,11 @@
               <div class="input-field">
                 <textarea name="body" id="body" class="materialize-textarea">
                     <%= post.content %>
-                  </textarea>
-              </div>
-            </form>
+                </textarea>
+                <input type="text" id="author" class="text-blue" value="
+                <%= post.user.first_name %>">
+                <label for="author">Author</label>
+            </form> <br>
         <% end %>
           </div>
           <div class="card-action">

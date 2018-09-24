@@ -66,6 +66,7 @@ get '/posts' do
   else
     @current_user = current_user
     @posts = Post.all
+    @users = User.all
     # @post = Post.find_by(user_id: @current_user.id)
   end
   erb :posts
