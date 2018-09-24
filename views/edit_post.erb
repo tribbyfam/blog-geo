@@ -1,0 +1,25 @@
+<div class="container">
+  <form method="POST" action="/posts/<%= @current_user.id %>">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="input-field">
+      <input type="text" id="title" name="title" value="<%= @current_user.title %>">
+      <label for="title">Title</label>
+    </div>
+    <div class="input-field">
+      <textarea name="content" id="content" class="materialize-textarea">
+          <%= @current_user.content %>
+        </textarea>
+    </div>
+    <div class="card-action">
+      <button type="submit" class="btn green">Save</button>
+    </div>
+  </form>
+</div>
+
+<form method="POST" action="/posts/<%= @current_user.id %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <div class="card-action">
+    <button type="submit" class="btn red">Delete</button>
+  </div>
+</form>
+    
