@@ -9,8 +9,8 @@
                 <span class="card-title">All posts</span>
               </div>
               <div class="col s12 m6 center">
-                <img src="img/person1.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
-                <p><%= @current_user.first_name %> signed in</p>
+                <img src="/images/bart.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
+                <span><%= @current_user.first_name %> signed in</span>
             
               </div>
             </div>
@@ -24,7 +24,7 @@
                 <textarea name="body" id="body" class="materialize-textarea">
                     <%= post.content %>
                 </textarea>
-                <input type="text" id="author" class="text-blue" value="
+                <input type="text" id="author" value="
                 <%= post.user.first_name %>">
                 <label for="author">Author</label>
             </form> <br>
