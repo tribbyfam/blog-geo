@@ -55,9 +55,13 @@ get '/users' do
 end
 
 get '/users/:id' do
-  @users = User.all
-  @users_posts = @users.posts
-  erb :my_posts
+  @specific_user = User.find(params[:id])
+  @users_posts = @specific_user.posts
+  erb :speicific_user
+end
+
+get '/specific_user' do
+  erb :specific_user
 end
 
 get '/posts' do
@@ -124,9 +128,9 @@ put '/posts/:id' do
 end
 
 delete '/posts/:id' do
-  @post = Post.find_by(params[:id])
-  @post.destroy
-  redirect '/posts'
+  @current_user = current_user
+  @current_user.destroy
+  redirect '/dashboard'
 end
 
 get '/comments' do
@@ -144,9 +148,9 @@ get '/logout' do
 end
 
 def delete_user
-  # @current_user = User.find(session[:user_id])
-  # @current_user = destroy
-  # redirect '/users'
+  @current_user = current_user
+  @current_user.destroy
+  redirect '/dashboard'
 end
 
 

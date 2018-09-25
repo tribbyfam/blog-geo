@@ -23,8 +23,8 @@
                     <td width="70">
                       <img src="#" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
                     </td>
-                    <td><%= user.first_name %></td>
-                    <td><%= user.email %></td>
+                    <td><a href="/users/<%= user.id %>"> <%= user.first_name %></a></td>
+                    <td><a href="/users/<%= user.id %>"><%= user.email %></a></td>
                     <td><%= user.created_at %></td>
                   </tr>
                 </tbody>

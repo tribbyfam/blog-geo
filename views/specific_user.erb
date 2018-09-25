@@ -1,0 +1,6 @@
+<h3>User Name:<%= @specific_user.first_name %></h3> 
+<% @users_posts.each do |post| %>
+<h5>Post title: <%= post.title %> </h5>
+<p>Post content: <%= post.content %></p>
+
+<% end %>
