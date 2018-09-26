@@ -16,23 +16,34 @@
             </div>
         <% @posts.each do |post|%>
             <form>
-              <div class="input-field">
-                <input type="text" id="title" value="<%= post.title %>">
-                <label for="title">Title</label>
+              <div class=" row input-field">
+                <div class="col s12 m6">
+                  <div class="card-panel hoverable">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" value="<%= post.title %>">
+                  </div>
+                </div>
+                <div class="col s6 m6">
+                  <div class="card-action">
+                    <label for="author">Author</label>
+                    <input type="text" id="title" value="<%= post.user.first_name %>">
+                    <form action="/new_comments">
+                      <button type="submit" class="right-align btn green darken-3">Add a Comment</button>
+                      <input type="hidden" name = "post_id" value = "<%= post.id %>">
+                    </form>
+                  </div>
+                </div>
+            
               </div>
               <div class="input-field">
-                <textarea name="body" id="body" class="materialize-textarea">
+                <textarea name="body" id="body" class="materialize-textarea trancate flow-text">
                     <%= post.content %>
                 </textarea>
-                <input type="text" id="author" value="
-                <%= post.user.first_name %>">
-                <label for="author">Author</label>
-            </form> <br>
+              </div>
+            </form id="break">
+            <br>
         <% end %>
-          </div>
-          <div class="card-action">
-            <button type="submit" class="btn green"><a href="/new_post"> Comment</a></button>
-          </div>
+          </div> 
         </div>
       </div>
     </div>

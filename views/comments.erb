@@ -9,50 +9,25 @@
             <table class="striped">
               <tbody>
                 <tr>
+                <% @comments.each do |comment| %>
                   <td width="70">
-                    <img src="img/person1.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
+                    <img src="<%= @user_pics.pics %>" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
                   </td>
-                  <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, nostrum!</td>
+                  <td><%= comment.content %></td>
                   <td>
-                    <a href="#!" class="green-text">
+                    <a href="/comments" class="green-text">
                       <i class="material-icons">done</i>
                     </a>
-                    <a href="#!" class="red-text">
+                    <a href="/delete_comment" class="red-text">
                       <i class="material-icons">close</i>
                     </a>
+                    <p>Created by: <%= @user.first_name %> </p> <br>
+                    <p>Created on: <%= comment.created_at %> </p>
                   </td>
                 </tr>
               </tbody>
+              <% end %>
             </table>
-          </div>
-          <div class="card-action">
-            <ul class="pagination">
-              <li class="disabled">
-                <a href="#!" class="blue-text">
-                  <i class="material-icons">chevron_left</i>
-                </a>
-              </li>
-              <li class="active blue lighten-2">
-                <a href="#!" class="white-text">1</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!" class="blue-text">2</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!" class="blue-text">3</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!" class="blue-text">4</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!" class="blue-text">5</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!" class="blue-text">
-                  <i class="material-icons">chevron_right</i>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

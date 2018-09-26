@@ -8,19 +8,19 @@
               <div class="col s12 m6">
                 <span class="card-title">My Posts</span>
               </div>
-              <% @post.each do |t| %>
+              <% @posts.each do |post| %>
               <div class="row">
                 <div class="col s12 center">
-                  <img src="/public/images.bart.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
-                  <h4><%= t.title %></h4>
-                  <p><%= t.content %></p> 
+                  <img src="<%= post.user.pics %>" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
+                  <h4><%= post.title %></h4>
+                  <p><%= post.content %></p> 
                 </div>
               </div>
               <% end %>
             </div>
           </div>
           <div class="card-action">
-            <a href="/dashboard"> <button action="delete" class="btn red">Delete</button></a>
+            <a href="/delete_user"> <button action="delete" class="btn red">Delete</button></a>
           </div>
         </div>
       </div>

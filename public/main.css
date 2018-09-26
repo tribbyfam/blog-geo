@@ -35,3 +35,8 @@
 #geo-blog {
   color: rgb(27, 71, 27);
 }
+
+#break {
+  height: 2px;
+  background-color: grey;
+}

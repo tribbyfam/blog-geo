@@ -87,8 +87,8 @@ get '/my_posts' do
     redirect '/login'
   else
     @user = User.find(session[:user_id])
-    @post = Post.where(user_id: session[:user_id])
-    @user = session[:id]
+    @posts = Post.where(user_id: session[:user_id])
+    # @user = session[:id]
     erb :my_posts
   end
 end
@@ -106,8 +106,8 @@ post '/new_post' do
   if (session[:user_id].nil?)
     redirect '/login'
   else
-  @user = session[:id]
-  @posts = Post.create(
+    @user = session[:id]
+    @posts = Post.create(
     title: params[:title],
     content: params[:content],
     user_id: session[:user_id]
@@ -134,7 +134,30 @@ delete '/posts/:id' do
 end
 
 get '/comments' do
-  erb :comments, locals: { comments: Comment.all }
+  erb :comments
+end
+
+get '/new_comments' do
+  @post_id = params[:post_id]
+  erb :new_comments
+end
+
+post '/new_comments' do
+  if (session[:user_id].nil?)
+    redirect '/login'
+  else
+  @user = session[:id]
+  @posts = Post.all
+  @specific_post = Post.find_by(:post_id)
+  @specific_user = User.where(user_id: session[:user_id])
+  # @user_pic = @specific_user.pics
+  @comments = Comment.create(
+  content: params[:content],
+  user_id: session[:user_id],
+  created_at: params[:created_at]
+  )
+  redirect '/comments'
+  end
 end
 
 get '/dashboard' do
@@ -147,11 +170,26 @@ get '/logout' do
   redirect '/dashboard'
 end
 
-def delete_user
+get '/delete_user' do
   @current_user = current_user
   @current_user.destroy
   redirect '/dashboard'
 end
 
+get '/delete_post' do
+  # @current_user = current_user
+  # @current_post = 
+end
+
+get '/delete_comment' do
+  @current_user = current_user
+  @current_comment = Comment.comment_id
+  if @current_user == @current_comment.user_id
+    @current_comment.destroy
+    redirect '/dashboard'
+  else
+    flash "you can only delete your own comments"
+  end
+end
 
 
