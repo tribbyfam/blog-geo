@@ -11,17 +11,17 @@ end
 
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :comments, :through => :posts
 end
+
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 end
+
 class Comment < ActiveRecord::Base
   belongs_to :user
-  has_one :post
+  belongs_to :post
 end
-class Tag < ActiveRecord::Base
-  belongs_to :user
-  has_one :post
-end
+

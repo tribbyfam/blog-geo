@@ -9,11 +9,11 @@
             <table class="striped">
               <tbody>
                 <tr>
-                <% @comments.each do |comment| %>
+                <% comment.each do |c| %>
                   <td width="70">
-                    <img src="<%= @user_pics.pics %>" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
+                    <%# <img src="<%= @user_pics.pics %>" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;"> %>
                   </td>
-                  <td><%= comment.content %></td>
+                  <td><%= c.content %></td>
                   <td>
                     <a href="/comments" class="green-text">
                       <i class="material-icons">done</i>
@@ -22,7 +22,7 @@
                       <i class="material-icons">close</i>
                     </a>
                     <p>Created by: <%= @user.first_name %> </p> <br>
-                    <p>Created on: <%= comment.created_at %> </p>
+                    <p>Created on: <%= c.created_at %> </p>
                   </td>
                 </tr>
               </tbody>

@@ -10,18 +10,23 @@
               </div>
               <% @posts.each do |post| %>
               <div class="row">
-                <div class="col s12 center">
+                <div class="col s12 center" id="<%= post.id %>">
                   <img src="<%= post.user.pics %>" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
-                  <h4><%= post.title %></h4>
+                  <h4><%= post.title.capitalize %></h4>
                   <p><%= post.content %></p> 
+                  <a href="/my_posts"> 
+                  <button action="delete" class="btn red">Delete</button>
+                  </a>
                 </div>
               </div>
               <% end %>
             </div>
-          </div>
-          <div class="card-action">
-            <a href="/delete_user"> <button action="delete" class="btn red">Delete</button></a>
-          </div>
+          </div class="row">
+            <div class="card-action">
+            <a href="/new_post"> 
+            <button action="get" class="btn green darken-3">Add New</button>
+            </a>
+          </div>            
         </div>
       </div>
     </div>

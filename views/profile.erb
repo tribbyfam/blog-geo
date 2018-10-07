@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-image">
+        <img src="images/sample-1.jpg">
+        <span class="card-title">Profile</span>
+      </div>
+      <div class="card-content">
+        <% user.each do |u| %>
+        <%= u.pics %>
+      </div>
+      <div>
+        <%= u.first_name %>
+      </div>
+      <div>
+        <%= u.last_name %>
+      </div>
+      <div>
+        <%= u.birthday %>
+        <div>
+        <%= u.username %>
+      </div>
+      <div>
+        <%= u.email %>
+      </div>
+    </div>
+  </div>
+</div>

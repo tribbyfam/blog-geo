@@ -27,10 +27,12 @@
                   <div class="card-action">
                     <label for="author">Author</label>
                     <input type="text" id="title" value="<%= post.user.first_name %>">
-                    <form action="/new_comments">
-                      <button type="submit" class="right-align btn green darken-3">Add a Comment</button>
+                    <div class="card-action">
+                      <a href="/new_comments"> 
+                      <button action="get" class="btn green darken-3">Add New Comment</button>
+                      </a>
                       <input type="hidden" name = "post_id" value = "<%= post.id %>">
-                    </form>
+                    </div>
                   </div>
                 </div>
             

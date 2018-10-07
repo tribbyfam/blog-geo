@@ -1,22 +1,17 @@
-<section class="section section-details grey lighten-4">
+<section class="section section-details grey lighten-4"> 
   <div class="container">
-    <form method="POST" action="/new_post">
-      <div class="input-field">
-        <input type="text" id="title" name="title" placeholder="title of your post here">
-        <label for="title">Title</label>
-      </div>
+    <form method="POST" action="/new_comments">
       <div class="input-field">
         <textarea name="content" id="content" class="materialize-textarea">
-        
+            
         </textarea>
       </div>
       <div class="card-action">
         <button type="submit" class="btn green darken-3">Save</button>
-        <a href="/posts"> 
+        <a href="/comments"> 
         <button  class="btn red">Cancel</button>
         </a>
       </div>
     </form>
   </div>
 </section>
-
