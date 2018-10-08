@@ -6,22 +6,21 @@
         <span class="card-title">Profile</span>
       </div>
       <div class="card-content">
-        <% user.each do |u| %>
-        <%= u.pics %>
+        <%= user.id.pics %>
       </div>
       <div>
-        <%= u.first_name %>
+        <%= user.id.first_name %>
       </div>
       <div>
-        <%= u.last_name %>
+        <%= user.id.last_name %>
       </div>
       <div>
-        <%= u.birthday %>
+        <%= user.id.birthday %>
         <div>
-        <%= u.username %>
+        <%= user.id.username %>
       </div>
       <div>
-        <%= u.email %>
+        <%= user.id.email %>
       </div>
     </div>
   </div>

@@ -75,17 +75,13 @@ get '/users/:id' do
   erb :speicific_user
 end
 
-get '/specific_user' do
-  erb :specific_user
-end
-
 get '/posts/?' do
   if (session[:user_id].nil?)
     redirect '/login'
   else
     @current_user = current_user
     @posts = Post.all
-    @users = User.all
+   
     # @post = Post.find_by(user_id: @current_user.id)
   end
   erb :posts, locals: { posts: Post.includes(:user, :comments) }
@@ -145,7 +141,7 @@ end
 delete '/posts/:id' do
   @post_id = params[:post_id]
   @post_id.destroy
-  redirect '/posts'
+  redirect '/my_posts'
 end
 
 get '/comments' do
@@ -193,6 +189,10 @@ get '/delete_comment' do
     redirect '/dashboard'
   else
     flash "you can only delete your own comments"
+  end
+
+  get '/profile/:id' do
+    erb :profile
   end
 end
 
