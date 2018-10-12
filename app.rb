@@ -141,7 +141,7 @@ end
 delete '/posts/:id' do
   @post_id = params[:post_id]
   @post_id.destroy
-  redirect '/my_posts'
+  # redirect '/my_posts'
 end
 
 get '/comments' do
