@@ -20,7 +20,7 @@ end
 
 
 get '/' do
-  erb :dash_layout
+  erb :dashboard
 end
 
 get '/signup' do
@@ -172,7 +172,7 @@ post '/new_comment' do
 end
 
 get '/dashboard' do
-  erb :dashboard, { locals: {}, layout: :dash_layout}
+  erb :dashboard
 end
 
 get '/delete_user' do
