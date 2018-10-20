@@ -2,27 +2,20 @@
 
 Title: Geography-blog
 
-Description: Class project to create a fullstack simple blog website that enables someone to sign up for an account 
+Description:
+Class project to create a fullstack simple blog website that enables someone to sign up for an account
 and create relevant posts on topic of geography.
 
-Technologies:  
+Technologies:
 
-Sinatra, 
-ActiveRecord, 
+Sinatra,
+ActiveRecord,
 Cookies,
 Heroku
 
-Instructions:
+This is a blog where you can share information anything and everything about geography or things related to geography like places you've visited, interesting maps or locales, or comment on news around the world.
 
-A blog, or weblog, is a platform where you can share information about a particular topic usually displayed much like diary entries in reverse chronological order. 
-Some popular blogging platforms include Wordpress (Links to an external site.)Links to an external site., 
-Tumblr (Links to an external site.)Links to an external site. and Medium (Links to an external site.)Links to an external site.. If you are not familiar, 
-we recommend you spend some time looking at some of the blogging platforms listed to familiarize yourself with how they work. 
-During this initial research phase it will be helpful for identify how these applications work on a fundamental level and note them.
-
-Completion Requirements:
-
-The completed assignment should:
+Requirements:
 
 have a way to create an account (sign up) with at least
 first name
