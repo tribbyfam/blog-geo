@@ -6,22 +6,22 @@
         <span class="card-title">Profile</span>
       </div>
       <div class="card-content">
-        <%= user.id.pics %>
+        <%= @specific_user.pics %>
       </div>
       <div>
-        <%= user.id.first_name %>
+        <%= @specific_user.first_name %>
       </div>
       <div>
-        <%= user.id.last_name %>
+        <%= @specific_user.last_name %>
       </div>
       <div>
-        <%= user.id.birthday %>
-        <div>
-        <%= user.id.username %>
+        <%= @specific_user.created_at.strftime("%d/%m/%Y") %>
       </div>
-      <div>
-        <%= user.id.email %>
-      </div>
+      <% if @specific_user == current_user then %>
+      <form action="/users/delete/<%= user.id %>" method="post">
+        <input class="btn red" type="submit" name="submit-delete-user" value="Delete account">
+      </form>
+    <% end %>
     </div>
   </div>
 </div>

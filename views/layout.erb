@@ -16,6 +16,7 @@
 
 <body class="grey lighten-4">
   <ul id="dropdown1" class="dropdown-content">
+  <% if session[:user_id] %>
     <li>
       <a href="/my_posts">My posts</a>
     </li>
@@ -25,7 +26,8 @@
     <li>
       <a href="/new_post">Create new</a>
     </li>
-
+   
+    <% end %>
   </ul>
 
   <nav class="blue darken-2">
@@ -34,8 +36,16 @@
         <a href="/posts" class="brand-logo">Geo Blog</a>
 
         <ul class="right hide-on-med-and-down">
+          <% if session[:user_id]== nil %>
           <li>
-            <a class="dropdown-trigger nav-btns" href="#!" data-target="dropdown1">Posts<i class="material-icons right">arrow_drop_down</i>
+            <a class="nav-btns" href="/signup">SignUp</a>
+          </li>
+          <li>
+            <a class="nav-btns" href="/login">LogIn</a>
+          </li>
+          <% else %>
+          <li>
+            <a class="dropdown-trigger nav-btns" href="#!" data-target="dropdown1">Posts
             </a>
           </li>
           <li>
@@ -44,6 +54,7 @@
           <li>
             <a class="nav-btns" href="/logout">LogOut</a>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>

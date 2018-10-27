@@ -24,18 +24,23 @@
                       <img src="#" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
                     </td>
                     <td>
-                    <a href="/profile <%= user.id %>"> <%= user.first_name %>
+                    <a href="/users/:id <%= user.id %>"> <%= user.first_name %>
                     </a>
                     </td>
                     <td>
-                    <a href="/profile <%= user.id %>"> <%= user.last_name %>
+                    <a href="/users/:id <%= user.id %>"> <%= user.last_name %>
                     </a>
                     </td>
                     <td>
-                    <a href="/profile <%= user.id %>"><%= user.email %>
+                    <a href="/users/:id <%= user.id %>"><%= user.email %>
                     </a>
                     </td>
                     <td><%= user.created_at.strftime("%d/%m/%Y") %>
+                    </td>
+                    <td>
+                   
+                    <button id="<%= @current_user %>" action="users/delete" method="get" class="btn red">Delete</button>
+                    
                     </td>
                   </tr>
                 </tbody>
@@ -57,12 +62,6 @@
                 </li>
                 <li class="waves-effect">
                   <a href="#!" class="blue-text">3</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">4</a>
-                </li>
-                <li class="waves-effect">
-                  <a href="#!" class="blue-text">5</a>
                 </li>
                 <li class="waves-effect">
                   <a href="#!" class="blue-text">

@@ -20,7 +20,10 @@ end
 
 
 get '/' do
+  # if logged_in
+  # else
   erb :dashboard
+  # end
 end
 
 get '/signup' do
@@ -70,9 +73,25 @@ get '/users/?' do
 end
 
 get '/users/:id' do
-  @specific_user = User.find(params[:id])
+  @specific_user = User.find_by(user_id: params[:user_id])
   @users_posts = @specific_user.posts
-  erb :speicific_user
+  erb :profile
+end
+
+get '/users/delete' do
+  @user_id = current_user
+  @user_id.destroy
+  redirect '/dashboard'
+end
+
+get '/profile' do
+  users = User.all
+  erb :profile, locals: { profile: User.all }
+end
+
+get '/profile/:id' do
+  user = current_user
+  erb :profile, locals: { profile: User.all }
 end
 
 get '/posts/?' do
@@ -98,7 +117,7 @@ get '/my_posts' do
     redirect '/login'
   else
     @user = User.find(session[:user_id])
-    @posts = Post.where(user_id: session[:user_id])
+    @posts = Post.where(user_id: session[:user_id]).last(20).reverse
     # @user = session[:id]
     erb :my_posts
   end
@@ -119,11 +138,11 @@ post '/new_post' do
   else
     @user = session[:id]
     @posts = Post.create(
-    title: params[:title],
-    content: params[:content],
+    title: params[:title] == !nil,
+    content: params[:content] == !nil,
     user_id: session[:user_id]
     )
-    redirect '/posts'
+    redirect '/my_posts'
   end
 end
 
@@ -141,7 +160,7 @@ end
 delete '/posts/:id' do
   @post_id = params[:post_id]
   @post_id.destroy
-  # redirect '/my_posts'
+  redirect '/my_posts'
 end
 
 get '/comments' do
@@ -178,7 +197,17 @@ end
 get '/delete_user' do
   @current_user = current_user
   @current_user.destroy
+  session[:user_id] = nil
   redirect '/dashboard'
+end
+
+post '/delete_user' do
+  @current_user = current_user
+  if delete_user and delete_user.id == current_user
+    @current_user.destroy
+    session[:user_id] = nil
+    redirect '/dashboard'
+  end
 end
 
 get '/delete_comment' do
@@ -191,9 +220,6 @@ get '/delete_comment' do
     flash "you can only delete your own comments"
   end
 
-  get '/profile/:id' do
-    erb :profile
-  end
 end
 
 
