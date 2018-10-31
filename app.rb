@@ -7,7 +7,9 @@ enable :sessions
 # use Rack::MethodOverride
 
 def current_user
+  if session[:user_id]
   User.find(session[:user_id])
+  end
 end
 
 def current_user_name
@@ -73,7 +75,7 @@ get '/users/?' do
 end
 
 get '/users/:id' do
-  @specific_user = User.find_by(user_id: params[:user_id])
+  user = User.find_by(user_id: params[:user_id])
   @users_posts = @specific_user.posts
   erb :profile
 end
@@ -85,13 +87,11 @@ get '/users/delete' do
 end
 
 get '/profile' do
-  users = User.all
-  erb :profile, locals: { profile: User.all }
-end
-
-get '/profile/:id' do
-  user = current_user
-  erb :profile, locals: { profile: User.all }
+  if (session[:user_id].nil?)
+    redirect '/login'
+  else
+  @user = User.find(session[:user_id])
+  erb :profile
 end
 
 get '/posts/?' do

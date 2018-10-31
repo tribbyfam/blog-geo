@@ -30,6 +30,19 @@
     <% end %>
   </ul>
 
+  <ul id="dropdown1" class="dropdown-content">
+  <% if session[:user_id] %>
+    <li>
+      <a href="/users">Users</a>
+    </li>
+    <li>
+      <a href="/profile">Profile</a>
+    </li>
+   
+   
+    <% end %>
+  </ul>
+
   <nav class="blue darken-2">
     <div class="container">
       <div class="nav-wrapper">
@@ -49,7 +62,7 @@
             </a>
           </li>
           <li>
-            <a class="nav-btns" href="/users">Users</a>
+            <a class="dropdown-trigger nav-btns" href="#!" data-target="dropdown1" href="#!">Users</a>
           </li>
           <li>
             <a class="nav-btns" href="/logout">LogOut</a>
