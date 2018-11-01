@@ -14,7 +14,7 @@
                 <th>Last Name</th>
                 <th>User Name</th>
                 <th>Birth Date</th>
-                <th>Registered</th>   
+                <th>Registered on</th>   
               </tr>
             </thead>
             <tbody>
@@ -38,8 +38,9 @@
             </tbody>
           </table>
         </div> 
-      <button class="btn red" action="delete/users/:id" class="btn red" method="post">Delete>
-      </button>
+        <form class="btn red del-btn" action="/delete_user" method="post">
+          <input type="submit" value="Delete Account">
+        </form>
     </div>
   </div>
 </div>

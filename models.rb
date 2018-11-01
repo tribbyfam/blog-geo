@@ -12,7 +12,7 @@ end
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :comments, :through => :posts
+  # has_many :comments, :through => :posts
 end
 
 class Post < ActiveRecord::Base

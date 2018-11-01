@@ -80,18 +80,13 @@ get '/users/:id' do
   erb :profile
 end
 
-get '/users/delete' do
-  @user_id = current_user
-  @user_id.destroy
-  redirect '/dashboard'
-end
-
 get '/profile' do
   if (session[:user_id].nil?)
     redirect '/login'
   else
   @user = User.find(session[:user_id])
   erb :profile
+  end
 end
 
 get '/posts/?' do
@@ -157,7 +152,7 @@ put '/posts/:id' do
   # @user.update(title: params[:title], content: params[:content])
 end
 
-delete '/posts/:id' do
+post '/delete_post' do
   @post_id = params[:post_id]
   @post_id.destroy
   redirect '/my_posts'
@@ -202,12 +197,10 @@ get '/delete_user' do
 end
 
 post '/delete_user' do
-  @current_user = current_user
-  if delete_user and delete_user.id == current_user
-    @current_user.destroy
-    session[:user_id] = nil
-    redirect '/dashboard'
-  end
+  @user_id = current_user
+  @user_id.destroy
+  session[:user_id] = nil
+  redirect '/dashboard'
 end
 
 get '/delete_comment' do
