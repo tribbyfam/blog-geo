@@ -128,17 +128,13 @@ get '/new_post' do
 end
 
 post '/new_post' do
-  if (session[:user_id].nil?)
-    redirect '/login'
-  else
-    @user = session[:id]
-    @posts = Post.create(
-    title: params[:title] == !nil,
-    content: params[:content] == !nil,
+  
+  post = Post.create(
+    title: params[:title],
+    content: params[:content],
     user_id: session[:user_id]
     )
     redirect '/my_posts'
-  end
 end
 
 get '/posts/:id/edit' do
